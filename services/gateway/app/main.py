@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 
+from services.gateway.app.middleware import CorrelationIDMiddleware
+
 app = FastAPI()
+
+app.add_middleware(CorrelationIDMiddleware)
 
 
 @app.get("/")
